@@ -5,9 +5,9 @@ void HeapAdjust(int *a,int pos,int size)
 	int min=pos;
 	if(pos<=size/2)
 	{
-		if(lchild<size && a[lchild]<a[min])
+		if(lchild<=size && a[lchild]<a[min])
 			min=lchild;
-		if(rchild<size && a[rchild]<a[min])
+		if(rchild<=size && a[rchild]<a[min])
 			min=rchild;
 		if(min!=pos)
 		{
@@ -18,9 +18,22 @@ void HeapAdjust(int *a,int pos,int size)
 		}
 	}
 }
+void BuildHeap(int *a,int size)
+{
+	int pos;
+	for(pos=size/2;pos>=0;pos--)
+	HeapAdjust(a,pos,size);
+}
 void HeapSort(int *a,int size)
 {
 	int pos;
-	for(pos=size/2;i>=0;i--)
-		HeapAdjust(a,pos,size);
+	BuildHeap(a,size);
+	for(pos=size-1;pos>=0;pos--)
+	{
+		int temp=a[pos];
+		a[pos]=a[0];
+		a[0]=temp;
+		HeapAdjust(a,1,pos-1);
+
+	}
 }

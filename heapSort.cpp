@@ -7,9 +7,9 @@ void HeapAdjust(int *a,int pos,int size)
 	int max=pos;
 	if(pos<=size/2)
 	{
-		if(lchild<size && a[lchild]>a[max])
+		if(lchild=<size && a[lchild]>a[max])
 			max=lchild;
-		if(rchild<size && a[rchild]>a[max])
+		if(rchild<=size && a[rchild]>a[max])
 			max=rchild;
 		if(max!=pos)
 		{
@@ -31,11 +31,11 @@ void HeapSort(int *a,int size)
 {
 	int pos;
 	BuildHeap(a,size);
-	for(pos=size-1;pos>=0;i--)
+	for(pos=size-1;pos>=0;pos--)
 	{
-		int temp=a[i];
-		a[i]=a[1];
-		a[1]=temp;
-		HeapAdjust(a,1,i-1);
+		int temp=a[pos];
+		a[pos]=a[0];
+		a[0]=temp;
+		HeapAdjust(a,1,pos-1);
 	}
 }
