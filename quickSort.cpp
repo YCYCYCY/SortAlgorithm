@@ -1,5 +1,7 @@
 void quickSort(int *num,int head,int tail)
 {
+	if(head>=tail)
+		return ;
 	int begin=head+1;
 	int end=tail;
 	int compara=num[head];
