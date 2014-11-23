@@ -1,20 +1,20 @@
-void quickSort(int *num,int begin,int end)
+void quickSort(int *num,int head,int tail)
 {
-	int i=begin;
-	int j=end+1;
-	int compara=num[i];
-	while(i<j)
+	int begin=head+1;
+	int end=tail;
+	int compara=num[head];
+	while(begin<end)
 	{
-		for(i=i+1;i<end;i++)
-		if{num[i]>compara}
-		break;
-    for (j=j-1;j>=begin;--j)
-		if(num[j]>compara)
-		break;
-		if(j>i)
-		swap(num[i],num[j]);
+		while(num[begin]<=compara)
+			++begin;
+		while(num[end]>=compara)
+			--end;
+		if(begin<end)
+			swap(num,begin,end);
+		++begin;
+		--end;
 	}
-	swap(num[begin],num[j]);
-	quickSort(num,begin,j-1);
-	quickSort(num,i;end);
+	swap(num,end,head);
+	quickSort(num,head,end-1);
+	quickSort(num,end+1;tail);
 }
