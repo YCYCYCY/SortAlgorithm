@@ -22,7 +22,7 @@ void BuildHeap(int *a,int size)
 {
 	int pos;
 	for(pos=size/2;pos>=0;pos--)
-	HeapAdjust(a,pos,size);
+		HeapAdjust(a,pos,size);
 }
 void HeapSort(int *a,int size)
 {
