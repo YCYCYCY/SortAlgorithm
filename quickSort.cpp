@@ -2,21 +2,19 @@ void quickSort(int *num,int head,int tail)
 {
 	if(head>=tail)
 		return ;
-	int begin=head+1;
-	int end=tail;
+	int low=head;
+	int high=tail;
 	int compara=num[head];
-	while(begin<end)
+	while(low<high)
 	{
-		while(num[begin]<=compara)
-			++begin;
-		while(num[end]>=compara)
-			--end;
-		if(begin<end)
-			swap(num,begin,end);
-		++begin;
-		--end;
+		while(low<high && num[high]>=compara)
+			--high;
+		num[low]=num[high];
+		while(low<high && num[low]<=compara)
+			++low;
+		num[high]=num[low];
 	}
-	swap(num,end,head);
-	quickSort(num,head,end-1);
-	quickSort(num,end+1;tail);
+	num[low] = compara;
+	quickSort(num,head,low-1);
+	quickSort(num,low+1;tail);
 }
