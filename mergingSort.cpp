@@ -29,4 +29,6 @@ void MergeArray(int *data,int first,int mid,int last,int *temp)
     temp[k++]=data[i++];
   while(j<=last)
     temp[k++]=data[j++];
+  for(int i=first;i<=last;i++)
+	  data[i]=temp[i];
 }

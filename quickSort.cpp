@@ -9,10 +9,12 @@ void quickSort(int *num,int head,int tail)
 	{
 		while(low<high && num[high]>=compara)
 			--high;
-		num[low]=num[high];
+		if(high>low)
+			num[low++]=num[high];
 		while(low<high && num[low]<=compara)
 			++low;
-		num[high]=num[low];
+		if(high>low)
+			num[high--]=num[low];
 	}
 	num[low] = compara;
 	quickSort(num,head,low-1);
